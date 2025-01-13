@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description"
+        content="XXX(Paper title)">
+    <!--   
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/> -->
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+
+    <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image"> -->
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="LLM, Robotic, Marph">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>LLM-Morph</title>
+    <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">LLM-Morph: A Framework to Design Agent's Morphology Using Large Language Models</h1>
+                        <div class="is-size-5 publication-authors">
+                            <!-- Paper authors -->
+                            <span class="author-block">
+                                    Yinsong Wang
+                                <sup>1</sup>,</span>
+                            <span class="author-block">
+                                    Jing Zhao
+                                <sup>1</sup>,</span>
+                            <span class="author-block">
+                                Shuyuan Zhang
+                                <sup>2</sup>,</span>
+                            <span class="author-block">
+                                Qia Tang
+                            <sup>2</sup>,</span>
+                            <span class="author-block">
+                                Yubo Yang
+                            <sup>3</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=HXnkIkwAAAAJ" target="_blank">
+                                    Huaping Liu
+                                </a><sup>4,*</sup>,</span>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>
+                                North China Electric Power University,
+                            </span>
+                            <span class="author-block"><sup>2</sup>
+                                Beijing University of Posts and Telecommunications,
+                            </span>  
+                            <span class="author-block"><sup>3</sup>
+                                Shanghai Institute of Technology,
+                            </span>
+                            <span class="author-block"><sup>4</sup>
+                                Tsinghua University,
+                            </span>  
+                            <span class="author-block"><sup>*</sup>
+                                Corresponding Author
+                            </span>
+                                
+                        </div>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- Arxiv PDF link -->
+                                <span class="link-block">
+                                    <a href="" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+
+                                </span>
+
+                                <!-- Github link -->
+                                <span class="link-block">
+                                    <a href="" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+
+                                <!-- ArXiv abstract Link -->
+                                <span class="link-block">
+                                    <a href="" target="_blank"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p style="font-size: 1.1em; line-height: 1.5em; text-align: left;">
+                            We introduce LLM-Morph, an automated approach for generating and optimizing robot designs using large language models (LLMs) and evolutionary algorithms.
+                        </p>
+                        <p style="font-size: 1.1em; line-height: 1.5em; text-align: left;">
+                            In this framework, each stage of the robot's morphology optimization process is guided by Large Language Models (LLMs), replacing the traditional neural network-based design approach from the initial design phase onward. By integrating automatic prompt design, our LLM-Morph framework continuously enhances control effectiveness by refining robot designs and improving overall performance.
+                        </p>
+                        <p style="font-size: 1.1em; line-height: 1.5em; text-align: left;">
+                            Our experimental results demonstrate that LLM-Morph effectively generates innovative robot designs and optimizes their performance enhancements. Additionally, LLM-Morph can further enhance performance simply by fine-tuning the morphology. Our approach demonstrates the potential of using LLMs for data-driven and modular robot design, providing a promising methodology that can be extended to other domains with similar design frameworks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <!--/ Abstract. -->
+
+    <section class="section" style="padding: 20px 0;">
+        <div class="container is-max-desktop">
+    
+            <!-- First Row: Image and Text (combined full width) -->
+            <div class="columns is-centered" style="margin-bottom: 20px;">
+                <!-- Left Column with Image (two-thirds width) -->
+                <div class="column is-two-thirds" style="display: flex; justify-content: center;">
+                    <img src="./static/images/figure_0.png" alt="Robot Design" style="width: 100%; max-width: 400px; height: auto;">
+                </div>
+    
+                <!-- Right Column with Text (one-third width) -->
+                <div class="column is-one-third" style="display: flex; align-items: center;">
+                    <p style="font-size: 1.1em; line-height: 1.5em; text-align: left;">
+                        The LLM designs a robot based on the user’s requirements, including the intended application and preferences.
+                        The design is then converted into an XML file using a mini-program.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Second Row: Video (full width) -->
+            <div class="columns is-centered">
+                <div class="column is-full" style="text-align: center;">
+                    <video controls autoplay muted loop style="width: 100%; max-width: 800px; height: auto;">
+                        <source src="./static/videos/0.形态生成/生成3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+    
+        
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-4">Experiments and Results</h2>
+            <p style="font-size: 1.1em; line-height: 1.5em; text-align: left;">
+                We ran five experiments, each focusing on a specific aspect:<br>
+                <strong>Speed</strong>, <strong>Distance</strong>, and <strong>Energy</strong> aim to improve the robot's performance, while <strong>Change Size</strong> and <strong>Change Location</strong> focus on optimizing fitness.
+            </p>
+            <br>
+            <!-- Task 1 -->
+            <h2 class="title is-5">Speed</h2>
+            <!-- Main Layout with speed_0.png spanning two rows on the left -->
+            <div class="columns is-centered">
+                <!-- Left Column with Large Image Spanning Two Rows -->
+                <div class="column is-one-quarter">
+                    <div class="content" style="text-align: center;">
+                        <img src="./static/images/speed_0.png" alt="" style="width: auto; height: 280px" />
+                    </div>
+                </div>
+
+                <!-- Right Column with Four Small Images and Four Videos -->
+                <div class="column is-three-quarter">
+
+                    <!-- Row with Four Small Images and Numbers Above -->
+                    <div class="columns">
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">12</p>
+                            <img src="./static/images/speed_1.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">13</p>
+                            <img src="./static/images/speed_2.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">20</p>
+                            <img src="./static/images/speed_3.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">21</p>
+                            <img src="./static/images/speed_4.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                    </div>
+
+                    <!-- Row with Four Videos Below the Images -->
+                    <div class="columns">
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/1.speed/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/1.speed/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/1.speed/3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/1.speed/4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <h2 class="title is-5">Distance</h2>
+            <div class="columns is-centered">
+                <!-- Left Column with Large Image Spanning Two Rows -->
+                <div class="column is-one-quarter">
+                    <div class="content" style="text-align: center;">
+                        <img src="./static/images/distance_0.png" alt="" style="width: auto; height: 265px" />
+                    </div>
+                </div>
+
+                <!-- Right Column with Four Small Images and Four Videos -->
+                <div class="column is-three-quarter">
+
+                    <!-- Row with Four Small Images and Numbers Above -->
+                    <div class="columns">
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">60</p>
+                            <img src="./static/images/distance_1.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">117</p>
+                            <img src="./static/images/distance_2.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">150</p>
+                            <img src="./static/images/distance_3.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">163</p>
+                            <img src="./static/images/distance_4.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                    </div>
+
+                    <!-- Row with Four Videos Below the Images -->
+                    <div class="columns">
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/2.distance/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/2.distance/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/2.distance/3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/2.distance/4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 3 -->
+            <h2 class="title is-5">Energy</h2>
+            <div class="columns is-centered">
+                <!-- Left Column with Large Image Spanning Two Rows -->
+                <div class="column is-one-quarter">
+                    <div class="content" style="text-align: center;">
+                        <img src="./static/images/energy_0.png" alt="" style="width: auto; height: 280px" />
+                    </div>
+                </div>
+
+                <!-- Right Column with Four Small Images and Four Videos -->
+                <div class="column is-three-quarter">
+
+                    <!-- Row with Four Small Images and Numbers Above -->
+                    <div class="columns">
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">-3.2</p>
+                            <img src="./static/images/energy_1.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">1</p>
+                            <img src="./static/images/energy_2.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">1.6</p>
+                            <img src="./static/images/energy_3.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">8.5</p>
+                            <img src="./static/images/energy_4.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                    </div>
+
+                    <!-- Row with Four Videos Below the Images -->
+                    <div class="columns">
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/3.energy/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/3.energy/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/3.energy/3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/3.energy/4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 4 -->
+            <h2 class="title is-5" style="display: flex; align-items: center;">
+                Fitness
+                <span style="width: 16px; height: 16px; background-color: blue; display: inline-block; margin: 0 8px;"></span>
+                <span style="font-weight: normal;">Change Size</span>
+            </h2>
+            <div class="columns is-centered">
+                <!-- Left Column with Large Image Spanning Two Rows -->
+                <div class="column is-one-quarter">
+                    <div class="content" style="text-align: center;">
+                        <img src="./static/images/fitness_0.png" alt="" style="width: auto; height: 265px" />
+                    </div>
+                </div>
+
+                <!-- Right Column with Four Small Images and Four Videos -->
+                <div class="column is-three-quarter">
+
+                    <!-- Row with Four Small Images and Numbers Above -->
+                    <div class="columns">
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">6.5</p>
+                            <img src="./static/images/fitness_1.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">17</p>
+                            <img src="./static/images/fitness_2.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">18</p>
+                            <img src="./static/images/fitness_3.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">21</p>
+                            <img src="./static/images/fitness_4.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                    </div>
+
+                    <!-- Row with Four Videos Below the Images -->
+                    <div class="columns">
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/4.size/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/4.size/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/4.size/3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/4.size/4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Task 5 -->
+            <h2 class="title is-5" style="display: flex; align-items: center;">
+                Fitness
+                <span style="width: 16px; height: 16px; background-color: red; display: inline-block; margin: 0 8px;"></span>
+                <span style="font-weight: normal;">Change Location</span>
+            </h2>
+            <div class="columns is-centered">
+                <!-- Left Column with Large Image Spanning Two Rows -->
+                <div class="column is-one-quarter">
+                    <div class="content" style="text-align: center;">
+                        <img src="./static/images/fitness_cl0.png" alt="" style="width: auto; height: 265px" />
+                    </div>
+                </div>
+
+                <!-- Right Column with Four Small Images and Four Videos -->
+                <div class="column is-three-quarter">
+
+                    <!-- Row with Four Small Images and Numbers Above -->
+                    <div class="columns">
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">6.5</p>
+                            <img src="./static/images/fitness_cl1.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">30</p>
+                            <img src="./static/images/fitness_cl2.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">43</p>
+                            <img src="./static/images/fitness_cl3.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                        <div class="column">
+                            <p style="text-align: center; background-color: #d7f1d7; font-weight: bold;">46</p>
+                            <img src="./static/images/fitness_cl4.png" alt=""
+                                style="width: 100%; max-width: 150px; max-height: 150px; margin: auto;" />
+                        </div>
+                    </div>
+
+                    <!-- Row with Four Videos Below the Images -->
+                    <div class="columns">
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/5.location/1.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/5.location/2.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/5.location/3.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <video autoplay controls muted loop playsinline
+                                style="width: 100%; max-width: 150px; height: auto;">
+                                <source src="./static/videos/5.location/4.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+
+    <!--BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>
+@article{
+}
+      </code></pre>
+        </div>
+    </section>
+    <!--End BibTex citation -->
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+
+                        <p>
+                            This website is adapted from<a href="https://github.com/nerfies/nerfies.github.io">
+                                Nerfies</a>, licensed
+                            under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License.</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Statcounter tracking code -->
+
+    <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
